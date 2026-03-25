@@ -540,3 +540,176 @@ body > section.Track_Re7la > div > div.Mobile.wow.animate__.animate__bounceInRig
 /* ############################################################### */
 /* ############### End Design Mobile ##################### */
 /* ############################################################### */
+
+
+
+
+/* ─── زرار الهمبرجر ─── */
+.menu-btn {
+
+  z-index: 300;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 10px;
+  padding: 10px 13px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: background .2s;
+}
+.menu-btn:hover { background: rgba(255,255,255,.2); }
+.menu-btn span {
+  display: block;
+  width: 22px; height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .35s ease, opacity .25s ease, width .25s ease;
+}
+.menu-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn.active span:nth-child(2) { opacity: 0; width: 0; }
+.menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── OVERLAY ─── */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+  z-index: 100;
+}
+.overlay.active { opacity: 1; pointer-events: all; }
+
+/* ─── LAYERS WRAPPER ─── */
+.layers {
+  position: fixed;
+  top: 0; right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 400;
+  pointer-events: none;
+}
+
+/* ─── الطبقات ─── */
+.layer {
+  position: absolute;
+  top: 0; right: 0;
+  height: 100%;
+  pointer-events: all;
+  transition: transform .55s cubic-bezier(.77,0,.18,1);
+  will-change: transform;
+}
+
+/* layer-4: شفافة وبتمتد كل عرض الشاشة */
+.layer-4 {
+  width: 100%;
+  background: rgba(26, 51, 92, 0.50);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateX(100%);
+  transition-delay: .18s;
+}
+
+/* layer-3: 100% شفافة */
+.layer-3 {
+  width: 100%;
+  background: rgba(16, 58, 121, 0.25);
+  transform: translateX(100%);
+  transition-delay: .12s;
+}
+
+/* layer-2: 100% شفافة */
+.layer-2 {
+  width: 100%;
+  background: rgba(26, 51, 92, 0.45);
+  transform: translateX(100%);
+  transition-delay: .06s;
+}
+
+/* layer-1: القائمة 75% */
+.layer-1 {
+  width: 75%;
+  background: #103a79;
+  transform: translateX(100%);
+  transition-delay: 0s;
+  border-radius: 22px 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: -14px 0 50px rgba(0,0,0,.4);
+}
+
+/* ── OPEN ── */
+.layers.open .layer-4 { transform: translateX(0); transition-delay: 0s;   }
+.layers.open .layer-3 { transform: translateX(0); transition-delay: .06s; }
+.layers.open .layer-2 { transform: translateX(0); transition-delay: .12s; }
+.layers.open .layer-1 { transform: translateX(0); transition-delay: .18s; }
+
+/* ── CLOSE ── */
+.layers.closing .layer-1 { transform: translateX(100%); transition-delay: 0s;   }
+.layers.closing .layer-2 { transform: translateX(100%); transition-delay: .06s; }
+.layers.closing .layer-3 { transform: translateX(100%); transition-delay: .12s; }
+.layers.closing .layer-4 { transform: translateX(100%); transition-delay: .18s; }
+
+/* ─── رأس القائمة ─── */
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  padding: 22px 16px 14px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.65);
+  font-size: 20px;
+  cursor: pointer;
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  transition: background .2s, color .2s;
+}
+.close-btn:hover { background: rgba(255,255,255,.1); color: #fff; }
+
+/* ─── القائمة ─── */
+.sidebar-nav {
+  flex: 1;
+  padding: 6px 10px 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: rgba(255,255,255,.72);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background .2s, color .2s, padding .2s;
+  user-select: none;
+  direction: rtl;
+}
+.nav-item a{
+    color:#fff;
+    text-decoration: none;
+    font-family: sawa_bold;
+}
+.nav-item:hover  { background: rgba(255,255,255,.07); color: #fff; padding-right: 18px; }
+.nav-item.active { background: rgba(255,255,255,.1);  color: #fff; }
+
+.nav-chevron {
+  color: rgba(255,255,255,.3);
+  font-size: 12px;
+  font-style: normal;
+}
+
+/* scrollbar */
+.sidebar-nav::-webkit-scrollbar { width: 3px; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,.08); border-radius: 3px; }

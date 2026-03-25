@@ -16,8 +16,8 @@
 <body>
     <div class="Navbar_Mobile">
         <div class="Navbar_Mobile_Data">
-            <img src="assets/images/sawa logo final-04 1.png" alt="">
-            <img src="assets/images/list_12232340 1.png" alt="">
+            <img src="assets/images/sawa logo final-04 1.png" alt="" style="width: 60px;height: 60px;">
+            <img src="assets/images/list_12232340 1.png" alt="" class="menu-btn" id="menuBtn" style="width:40px;height: 40px;">
         </div>
     </div>
     <section class="Navbar_Section">
@@ -203,10 +203,86 @@
         </div>
     </footer>
 
+
+    <!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+ 
+<!-- ─── الطبقات ─── -->
+<div class="layers" id="layers">
+  <div class="layer layer-4"></div>
+  <div class="layer layer-3"></div>
+  <div class="layer layer-2"></div>
+ 
+  <div class="layer layer-1">
+    <div class="sidebar-head">
+      <button class="close-btn" id="closeBtn">✕</button>
+    </div>
+ 
+    <nav class="sidebar-nav">
+      <div class="nav-item">
+        <a href=""> من نحن </a>
+      </div>
+
+      <div class="nav-item">
+        <a href="">  خدمات سوا </a>
+      </div>
+
+      <div class="nav-item">
+        <a href=""> مميزات سوا  </a>
+      </div>
+
+      <div class="nav-item">
+        <a href=""> تواصل معنا  </a>
+      </div>
+
+      <div class="nav-item">
+        <a href="" style="background-color: #194FA5F2;padding: 10px; width:113px;border-radius:10px;text-align: center;">  حمل التطبيق  </a>
+      </div>
+    </nav>
+  </div>
+</div>
+
     <script src="js/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
+
+    <script>
+  const menuBtn  = document.getElementById('menuBtn');
+  const layers   = document.getElementById('layers');
+  const overlay  = document.getElementById('overlay');
+  const closeBtn = document.getElementById('closeBtn');
+ 
+  function openMenu() {
+    layers.classList.remove('closing');
+    layers.classList.add('open');
+    overlay.classList.add('active');
+    menuBtn.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+ 
+  function closeMenu() {
+    layers.classList.add('closing');
+    layers.classList.remove('open');
+    overlay.classList.remove('active');
+    menuBtn.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => layers.classList.remove('closing'), 800);
+  }
+ 
+  menuBtn.addEventListener('click', () =>
+    layers.classList.contains('open') ? closeMenu() : openMenu()
+  );
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+ 
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+</script>
 
 </body>
 
