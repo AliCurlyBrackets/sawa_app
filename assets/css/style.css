@@ -415,7 +415,10 @@ width: 49%;
     }
 
     .Hero_Section .Hero_Data .Mobile img {
-    width: 170px;
+    width: 120px;
+}
+.Download_App a {
+    padding: 4px 10px;
 }
 
 .Hero_Data .Info h1 {
@@ -439,6 +442,7 @@ width: 49%;
 
 .New_App_Section .New_App_Data .All_Cards .card_item{
     margin: 0 auto;
+    width: 270px;
 }
 
 
@@ -452,6 +456,7 @@ width: 49%;
 
 .subscrip_easy .subscrip_easy_data {
     flex-direction: column;
+    width: 100%;
 }
 
 .Track_Re7la .Track_Re7la_Data{
@@ -466,6 +471,12 @@ width: 49%;
 .Track_Re7la .Track_Re7la_Data .Info h2 {
     font-size: 18px;
 }
+.Track_Re7la .Track_Re7la_Data .Info{
+    width: 90%;
+}
+.Track_Re7la .Track_Re7la_Data{
+    width: 100%;
+}
 
 .footer_data{
     flex-direction: column;
@@ -476,7 +487,7 @@ width: 49%;
 .Info_Footer{
     width: 100%;
     position: relative;
-    top: 230px;
+    top: 260px;
 }
 
 
@@ -516,7 +527,7 @@ width: 49%;
 }
 
 .New_App_Section h2 {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 }
