@@ -8,6 +8,7 @@
     position: absolute;
     left: 0;
     width: 100%;
+    z-index: 450;
 }
 
 .Navbar_Section .Navbar_Data{
@@ -517,9 +518,10 @@ width: 49%;
 }
 
 .Navbar_Mobile_Data{
-    margin: 10px auto;
-    display: flex;
-    justify-content: space-around;
+   margin: 10px auto;
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
 }
 
 .Navbar_Mobile_Data img{
